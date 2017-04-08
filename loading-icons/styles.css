@@ -35,6 +35,18 @@ BLUE:
   background: #f8f8f8;
 }
 
+/*.container .spinner,
+.container .spinner::before,
+.container .spinner::after {
+  animation-play-state: paused;
+}
+
+.container:hover .spinner,
+.container:hover .spinner::before,
+.container:hover .spinner::after {
+  animation-play-state: running;
+}*/
+
 .options {
   width: 100%;
   position: absolute;
@@ -113,19 +125,6 @@ input[type='radio'] {
   position: absolute;
   left: -9999pt;
 }
-
-/*.loader {
-  transition: opacity 0.3s;
-  opacity: 0.1;
-}
-
-.container:hover .loader {
-  opacity: 1;
-}
-
-.container .loader:hover {
-  opacity: 1;
-}*/
 
 .loader-circle .spinner {
   width: 60pt;
@@ -271,5 +270,64 @@ input[type='radio'] {
   }
   100% {
     transform: rotate(540deg);
+  }
+}
+
+.loader-dots {
+  display: flex;
+}
+
+.loader-dots .dot {
+  width: 10pt;
+  height: 10pt;
+  background: rgba(255, 73, 92, 1);
+  border-radius: 50%;
+  margin: 0 3pt;
+}
+
+.basic-grow .dot {
+  animation-name: basicGrow;
+  animation-duration: .5s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+  animation-direction: alternate;
+}
+
+.basic-grow .dot:nth-of-type(2),
+.basic-bounce .dot:nth-of-type(2) {
+  animation-delay: 150ms
+}
+
+.basic-grow .dot:nth-of-type(3),
+.basic-bounce .dot:nth-of-type(3) {
+  animation-delay: 300ms
+}
+
+
+@keyframes basicGrow {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
+
+.basic-bounce .dot {
+  animation-name: basicBounce;
+  animation-duration: .45s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+  animation-direction: alternate;
+  animation-timing-function: cubic-bezier(0.49, -0.2, 0.51, 1.2);
+}
+
+
+@keyframes basicBounce {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
   }
 }
