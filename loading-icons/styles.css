@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css?family=Anonymous+Pro|Montserrat:300');
+
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+/*
+font-family: 'Anonymous Pro', monospace;
+
+GREEN:
+rgba(61, 220, 151, 1);
+
+RED:
+#FF495C;
+
+BLUE:
+#3e3fe6;
+*/
+
+.container {
+  height: 50vh;
+  min-height: 400pt;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.container:nth-of-type(2n) {
+  background: #f5f5f5;
+}
+
+.options {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20pt;
+}
+
+.single-setting-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.setting-title {
+  display: block;
+  text-align: center;
+  margin-bottom: 10pt;
+  font-size: 12pt;
+  text-transform: uppercase;
+  letter-spacing: 2pt;
+}
+
+.options-1 {
+  color: rgba(61, 220, 151, 1);
+}
+
+.options-1 .shape-setting-option {
+  display: block;
+  border-radius: 50%;
+  width: 16pt;
+  height: 16pt;
+  margin: 0 4pt;
+}
+
+.options-1 .shape-1 {
+  border: 2pt solid rgba(61, 220, 151, .1);
+  border-top: 2pt solid rgba(61, 220, 151, 1);
+}
+
+.options-1 .shape-2 {
+  border: 2pt solid rgba(61, 220, 151, .1);
+  border-top: 2pt solid rgba(61, 220, 151, 1);
+  border-bottom: 2pt solid rgba(61, 220, 151, 1);
+}
+
+.options-1 .shape-3 {
+  border: 2pt solid rgba(61, 220, 151, .1);
+  border-top: 2pt solid rgba(61, 220, 151, 1);
+  border-right: 2pt solid rgba(61, 220, 151, 1);
+}
+
+.options-1 .shape-4 {
+  border: 2pt solid rgba(61, 220, 151, 1);
+  border-top: 2pt solid rgba(61, 220, 151, .1);
+}
+
+.options-wrapper {
+  display: flex;
+}
+
+input[type='radio'] {
+  position: absolute;
+  left: -9999pt;
+}
+
+/*.loader {
+  transition: opacity 0.3s;
+  opacity: 0.1;
+}
+
+.container:hover .loader {
+  opacity: 1;
+}
+
+.container .loader:hover {
+  opacity: 1;
+}*/
+
+.loader-circle .spinner {
+  width: 60pt;
+  height: 60pt;
+  border-radius: 50%;
+}
+
+.basic-3-4 .spinner,
+.basic-3-4-ease .spinner,
+.basic-1-4 .spinner,
+.basic-1-4-ease .spinner {
+  position: relative;
+  animation-name: basicSpin;
+  animation-duration: 1.5s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+}
+
+.basic-3-4 .spinner,
+.basic-3-4-ease .spinner {
+  border: 3pt solid rgba(61, 220, 151, 1);
+  border-top: 3pt solid rgba(61, 220, 151, .1);
+}
+
+.basic-1-4 .spinner,
+.basic-1-4-ease .spinner {
+  border: 3pt solid rgba(61, 220, 151, .1);
+  border-top: 3pt solid rgba(61, 220, 151, 1);
+}
+
+.basic-3-4 .spinner,
+.basic-1-4 .spinner {
+  animation-timing-function: linear;
+}
+
+.basic-3-4-ease .spinner,
+.basic-1-4-ease .spinner {
+  animation-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.basic-opposing .spinner {
+  position: relative;
+}
+
+.basic-opposing .spinner::before,
+.basic-opposing .spinner::after {
+  content: '';
+  position: absolute;
+  top: -3pt;
+  left: -3pt;
+  right: -3pt;
+  bottom: -3pt;
+  border-radius: 50%;
+  border: 3pt solid transparent;
+  border: 3pt solid rgba(61, 220, 151, .1);
+  border-top: 3px solid rgba(61, 220, 151, 1);
+  /*border-bottom: 3px solid rgba(61, 220, 151, 1);*/
+  animation-duration: 1.5s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+  animation-name: basicSpin;
+  animation-timing-function: cubic-bezier(0.7, 0, 0.3, 1)
+}
+
+.basic-opposing .spinner::after {
+  animation-direction: reverse;
+  top: 3pt;
+  left: 3pt;
+  right: 3pt;
+  bottom: 3pt;
+}
+
+@keyframes basicSpin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
